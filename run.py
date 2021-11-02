@@ -4,9 +4,7 @@ import requests
 import socket
 import subprocess
 
-#ipaddress = subprocess.call('var=$(curl ifconfig.me)')
-#ipaddress = subprocess.call('var=$(curl ifconfig.me)',executable='/bin/bash/')
-url = 'http://35.239.172.202/feedback/'
+url = 'http://35.193.92.48/feedback/'
 directory_text = '/data/feedback/'
 dictionary = {}
 
@@ -22,11 +20,4 @@ for filename in os.listdir(directory_text):
 		dictionary['feedback'] = line
 	response = requests.post(url, data = dictionary)
 	print(response.status_code)
-#print(dictionary)
-
-#ipaddress = socket.getsockname()
-
-#print(socket.gethostbyname(socket.gethostname()))
-
-#print(ipaddress)
 
