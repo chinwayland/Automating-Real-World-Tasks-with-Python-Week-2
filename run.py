@@ -1,10 +1,9 @@
 #!/usr/bin/env python3
 import os
 import requests
-import socket
-import subprocess
 
-url = 'http://35.193.92.48/feedback/'
+ip = requests.get('https://api.ipify.org').content.decode('utf8')
+url = 'http://' + ip + '/feedback/'
 directory_text = '/data/feedback/'
 dictionary = {}
 
@@ -20,4 +19,3 @@ for filename in os.listdir(directory_text):
 		dictionary['feedback'] = line
 	response = requests.post(url, data = dictionary)
 	print(response.status_code)
-
